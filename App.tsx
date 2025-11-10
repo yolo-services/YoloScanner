@@ -58,7 +58,7 @@ export default function App() {
 
   const handleBarCodeScanned = ({ data }: { data: string }) => {
     if (data.startsWith('ws://')) {
-      connectToServer(data);
+      connectToServer(data, false);
     } else if (ws && connected) {
       ws.send(JSON.stringify({ type: 'text', text: data }));
       setScreen('settings');
